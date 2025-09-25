@@ -19,5 +19,30 @@ public class StudentService {
         repository.addStudent(new Student(id, firstName, lastName, age, semester));
     }
 
+    public void updateStudent(int id, String firstName, String lastName, int age, int semester) {
+        Student student = repository.getStudentById(id);
+        if(student == null) {
+            throw new IllegalArgumentException("Student not found.");
+        }
+        student.setFirstName(firstName);
+        student.setLastName(lastName);
+        student.setAge(age);
+        student.setSemester(semester);
+
+        repository.updateStudent(student);
+    }
+
+    public void deleteStudent(int id){
+        repository.deleteStudent(id);
+    }
+
+    public Student getStudentById(int id){
+        return repository.getStudentById(id);
+    }
+
+    public List<Student> getAllStudents() {
+        return repository.getAllStudents();
+    }
+
 
 }
