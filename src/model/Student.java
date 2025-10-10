@@ -37,5 +37,4 @@ public class Student {
     public String toString() {
         return "model.Student{id=" + id + ", firstName='" + firstName + "', lastName='" + lastName + "', age='" + age + "', semester=" + semester + "}";
     }
-
 }

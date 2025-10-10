@@ -1,0 +1,56 @@
+
+<!-- Declaring POM model we are using explicitly since MAVEN supports only 4.0.0 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--Necessary, it tells our project what language level we are using. It takes over from the IDE Project Structure from when we use plain Java -->
+    <!-- https://www.jetbrains.com/help/idea/convert-a-regular-project-into-a-maven-project.html#describe_project -->
+
+
+    <properties>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <!-- Project Information to Identify it-->
+    <groupId>com.example</groupId>
+    <artifactId>student-management</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Student Manager</name>
+
+
+    <!-- Dependencies (Low-key a redundant comment)-->
+
+    <dependencies>
+
+        <!-- JUnit - Documentation in maven.apache.org -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+
+
+
+</project>
