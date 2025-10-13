@@ -4,6 +4,12 @@ import model.Student;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// These are the only methods to interact with the data stored.
+// Now this is currently called "InMemory" because there's no database functionality implemented... yet.
+// All data operations are done strictly through the repository methods.
+// These separatees business logic from data access logic.
+
 public class InMemoryStudentRepository implements StudentRepository{
     private final List<Student> students = new ArrayList<>();
 

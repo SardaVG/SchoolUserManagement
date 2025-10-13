@@ -4,6 +4,10 @@ import model.Student;
 import repository.StudentRepository;
 import java.util.List;
 
+// This is the business logic layer (it connects the repository (data access layer) with the UI stuff or the stuff the Users interact with)
+// In short, the Repository handles just how the data is worked and handled, and the service works the data itself that the repository then stores.
+
+
 public class StudentService {
     private final StudentRepository repository;
 
