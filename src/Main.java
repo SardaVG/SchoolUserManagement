@@ -1,5 +1,6 @@
 import model.Student;
 import repository.InMemoryStudentRepository;
+import repository.JDBCStudentRepository;
 import service.StudentService;
 
 import java.util.Scanner;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        StudentService service = new StudentService(new InMemoryStudentRepository());
+        StudentService service = new StudentService(new JDBCStudentRepository());
         Scanner scanner = new Scanner(System.in);
 
         while (true) {

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnection {
 
     // We establish the info for the connection to the database (as good practice this should be moved to a .env, will do later)
-    private static final String URL = "jdbc:msql://localhost:3306/school_management";
+    private static final String URL = "jdbc:mysql://localhost:3306/school_management";
     private static final String USER = "root";
     private static final String PASSWORD = "pass123";
 

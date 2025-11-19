@@ -4,16 +4,17 @@ import model.Student;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import repository.InMemoryStudentRepository;
+import repository.JDBCStudentRepository;
 
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StudentServiceTest {
-    private StudentService service;
+class OldStudentServiceTest {
+    private OldStudentService service;
 
     @BeforeEach
     void setUp() {
-        service = new StudentService(new InMemoryStudentRepository());
+        service = new OldStudentService(new JDBCStudentRepository());
     }
 
     @Test
