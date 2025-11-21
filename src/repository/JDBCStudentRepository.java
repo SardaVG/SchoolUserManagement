@@ -9,6 +9,7 @@ import java.util.List;
 
 public class JDBCStudentRepository implements StudentRepository {
 
+    /* A genius forgot that we should be able to assign ID in add*/
 
     @Override
     public void addStudent(Student student) {
