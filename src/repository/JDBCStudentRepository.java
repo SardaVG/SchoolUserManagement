@@ -73,7 +73,7 @@ public class JDBCStudentRepository implements StudentRepository {
                         rs.getString("firstname"),
                         rs.getString("lastname"),
                         rs.getInt("age"),
-                        rs.getInt("grade")
+                        rs.getInt("semester")
                 );
             }
         } catch (SQLException e) {
@@ -98,7 +98,7 @@ public class JDBCStudentRepository implements StudentRepository {
                         rs.getString("firstname"),
                         rs.getString("lastname"),
                         rs.getInt("age"),
-                        rs.getInt("grade")
+                        rs.getInt("semester")
                 ));
             }
         } catch (SQLException e) {
