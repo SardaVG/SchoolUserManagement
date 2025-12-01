@@ -1,20 +1,18 @@
 package service;
 
 import model.Student;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import repository.InMemoryStudentRepository;
+import org.junit.jupiter.api.Test;
 import repository.JDBCStudentRepository;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OldStudentServiceTest {
-    private OldStudentService service;
+class studentServiceTestJDBC {
+    private StudentService service;
 
     @BeforeEach
     void setUp() {
-        service = new OldStudentService(new JDBCStudentRepository());
+        service = new StudentService(new JDBCStudentRepository());
     }
 
     @Test
