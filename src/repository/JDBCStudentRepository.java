@@ -9,12 +9,30 @@ import java.util.List;
 
 public class JDBCStudentRepository implements StudentRepository {
 
+    private final Connection testConnection;
+
+    // Test connection variable serves to know when to use the H2 Mock DB for testing or to connect to the Production DB.
+    public JDBCStudentRepository() {
+        this.testConnection = null;
+    }
+
+    public JDBCStudentRepository(Connection connection) {
+        this.testConnection = connection;
+    }
+
+    private Connection getTestConnection() throws SQLException {
+        return (testConnection != null) ? testConnection : DBConnection.getConnection();
+    }
+
+
+
+
     /* A genius forgot that we should be able to assign ID in add*/
 
     @Override
     public void addStudent(Student student) {
         String sql = "INSERT INTO students (firstname, lastname, age, semester) VALUES (?, ?, ?, ?)";
-        try (Connection conn = DBConnection.getConnection();
+        try (Connection conn = getTestConnection();
         PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, student.getFirstName());
@@ -31,7 +49,7 @@ public class JDBCStudentRepository implements StudentRepository {
     @Override
     public void updateStudent(Student student) {
         String sql = "UPDATE students SET firstname = ?, lastname = ?, age = ?, semester = ? WHERE id = ?";
-        try (Connection conn = DBConnection.getConnection();
+        try (Connection conn = getTestConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, student.getFirstName());
@@ -48,7 +66,7 @@ public class JDBCStudentRepository implements StudentRepository {
     @Override
     public void deleteStudent(int id) {
         String sql = "DELETE FROM students WHERE id = ?";
-        try (Connection conn = DBConnection.getConnection();
+        try (Connection conn = getTestConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
@@ -62,7 +80,7 @@ public class JDBCStudentRepository implements StudentRepository {
     @Override
     public Student getStudentById(int id) {
         String sql = "SELECT * FROM students WHERE id = ?";
-        try (Connection conn = DBConnection.getConnection();
+        try (Connection conn = getTestConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
@@ -89,7 +107,7 @@ public class JDBCStudentRepository implements StudentRepository {
         List<Student> students = new ArrayList<>();
         String sql = "SELECT * FROM students";
 
-        try (Connection conn = DBConnection.getConnection();
+        try (Connection conn = getTestConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
